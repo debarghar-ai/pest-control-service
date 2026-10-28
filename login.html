@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PestCare Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="brand">🐞 PestCare</div>
+    <p class="subtitle">Pest Control Service Management</p>
+
+    <h1 id="formTitle">Welcome Back!</h1>
+    <p id="formDescription">Login to continue to your account.</p>
+
+    <form id="authForm">
+      <label for="email">Email Address</label>
+      <input id="email" type="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password"
+        placeholder="Enter your password" minlength="8" required>
+
+      <button type="submit" id="submitBtn">Login</button>
+    </form>
+
+    <p id="message" role="status"></p>
+
+    <p class="switch">
+      <span id="switchText">Don't have an account?</span>
+      <button type="button" id="switchBtn">Register</button>
+    </p>
+
+    <button id="exportBtn" hidden>Export My Profile to Excel</button>
+    <button id="logoutBtn" hidden>Logout</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

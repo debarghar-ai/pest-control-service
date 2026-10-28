@@ -1,0 +1,113 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #eaf5ec;
+  color: #20352a;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 35px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px #173d2b18;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: #176b42;
+}
+
+.subtitle {
+  color: #657469;
+  font-size: 14px;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 7px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cdd9cf;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: 2px solid #82bb96;
+  border-color: #176b42;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 15px;
+}
+
+#submitBtn,
+#exportBtn,
+#logoutBtn {
+  width: 100%;
+  margin-top: 20px;
+  background: #176b42;
+  color: white;
+}
+
+#submitBtn:hover,
+#exportBtn:hover,
+#logoutBtn:hover {
+  background: #105332;
+}
+
+.switch {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#switchBtn {
+  padding: 4px;
+  background: transparent;
+  color: #176b42;
+  font-weight: bold;
+}
+
+#message {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 450px) {
+  .login-container {
+    padding: 25px 20px;
+  }
+}
