@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service | PestCare</title>
+  <link rel="stylesheet" href="booking.css">
+  <script src="booking.js" defer></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <a class="logo" href="index.html">🐞 PestCare</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="booking.html">Book a Service</a>
+    </nav>
+
+    <a class="btn btn-small" href="login.html">Login / Register</a>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <p class="eyebrow">PESTCARE SERVICE REQUEST</p>
+      <h1>Book your <span>pest control</span> visit.</h1>
+      <p>Choose the service you need and tell us when and where you would like a visit.</p>
+    </section>
+
+    <div class="layout" id="bookingLayout">
+
+      <section class="panel">
+        <h2>Service details</h2>
+
+        <form id="bookingForm">
+
+          <label for="service">Service required *</label>
+          <select id="service" name="service" required>
+            <option value="">Choose a service</option>
+            <option>Ant Control</option>
+            <option>Cockroach Control</option>
+            <option>Mosquito Control</option>
+            <option>Termite Control</option>
+            <option>Rodent Control</option>
+            <option>General Pest Inspection</option>
+            <option>Other / Not sure</option>
+          </select>
+
+          <label>Property type *</label>
+
+          <div class="choices">
+            <label>
+              <input type="radio" name="property" value="House" required>
+              🏠 House
+            </label>
+
+            <label>
+              <input type="radio" name="property" value="Apartment">
+              🏢 Apartment
+            </label>
+
+            <label>
+              <input type="radio" name="property" value="Office">
+              💼 Office
+            </label>
+
+            <label>
+              <input type="radio" name="property" value="Shop / Other">
+              🏬 Shop / Other
+            </label>
+          </div>
+
+          <label for="date">Preferred date *</label>
+          <input type="date" id="date" name="date" required>
+
+          <label for="time">Preferred time *</label>
+          <select id="time" name="time" required>
+            <option value="">Choose a time</option>
+            <option>9:00 AM – 12:00 PM</option>
+            <option>12:00 PM – 3:00 PM</option>
+            <option>3:00 PM – 6:00 PM</option>
+          </select>
+
+          <label for="address">Service address *</label>
+          <textarea id="address" name="address" rows="3"
+            placeholder="House/flat, street, area, city, PIN code"
+            required></textarea>
+
+          <label for="notes">Additional details (optional)</label>
+          <textarea id="notes" name="notes" rows="3"
+            placeholder="Describe the pest problem"></textarea>
+
+          <div class="two-columns">
+
+            <div>
+              <label for="name">Full name *</label>
+              <input id="name" name="name"
+                autocomplete="name" required>
+            </div>
+
+            <div>
+              <label for="phone">Phone number *</label>
+              <input id="phone" name="phone" type="tel"
+                pattern="[0-9+() -]{10,18}"
+                placeholder="Mobile number" required>
+            </div>
+
+          </div>
+
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email"
+            placeholder="you@example.com">
+
+          <label class="consent">
+            <input type="checkbox" id="consent" required>
+            I confirm that these details are correct. I understand
+            this is a request, not a confirmed appointment.
+          </label>
+
+          <button class="btn submit" type="submit">
+            Submit service request →
+          </button>
+
+          <p class="note">
+            Demo version: requests are saved in this browser only.
+          </p>
+
+        </form>
+      </section>
+
+      <aside class="side">
+
+        <section class="summary">
+          <p class="eyebrow">YOUR REQUEST</p>
+          <h2>Booking summary</h2>
+
+          <p>
+            <span>Service</span>
+            <strong id="sumService">Not selected</strong>
+          </p>
+
+          <p>
+            <span>Property</span>
+            <strong id="sumProperty">Not selected</strong>
+          </p>
+
+          <p>
+            <span>Date</span>
+            <strong id="sumDate">Not selected</strong>
+          </p>
+
+          <p>
+            <span>Time</span>
+            <strong id="sumTime">Not selected</strong>
+          </p>
+
+          <div class="status">
+            <b>● Awaiting confirmation</b>
+            <br>
+            <small>
+              Your preferred slot must be confirmed by the service team.
+            </small>
+          </div>
+
+        </section>
+
+        <section class="help">
+          <h3>Need help choosing?</h3>
+          <p>Select General Pest Inspection if you are unsure which service you need.</p>
+          <a href="index.html#services">Explore services →</a>
+        </section>
+
+      </aside>
+
+    </div>
+
+    <section id="success" class="success" hidden aria-live="polite">
+
+      <div class="check">✓</div>
+
+      <p class="eyebrow">REQUEST SAVED</p>
+
+      <h2>Thank you! Your request is ready.</h2>
+
+      <p id="successMessage"></p>
+
+      <p class="reference" id="reference"></p>
+
+      <p class="note">
+        This demo saves the request in this browser.
+        It has not been sent to PestCare and is not a confirmed appointment.
+      </p>
+
+      <button class="btn" id="newBooking" type="button">
+        Book another service
+      </button>
+
+      <button class="btn secondary" id="printBooking" type="button">
+        Print summary
+      </button>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 PestCare Service Management System
+  </footer>
+
+</body>
+</html>
