@@ -4,41 +4,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PestCare Login</title>
+  <title>PestCare - Login & Register</title>
   <link rel="stylesheet" href="login.css">
+  <script src="login.js" defer></script>
 </head>
 <body>
-  <div class="login-container">
-    <div class="brand">🐞 PestCare</div>
-    <p class="subtitle">Pest Control Service Management</p>
 
-    <h1 id="formTitle">Welcome Back!</h1>
-    <p id="formDescription">Login to continue to your account.</p>
+  <div class="auth-container">
+    <div class="auth-card">
 
-    <form id="authForm">
-      <label for="email">Email Address</label>
-      <input id="email" type="email" placeholder="Enter your email" required>
+      <div class="logo">
+        <h2>🐜 PestCare</h2>
+        <p>Your trusted pest control partner</p>
+      </div>
 
-      <label for="password">Password</label>
-      <input id="password" type="password"
-        placeholder="Enter your password" minlength="8" required>
+      <div class="tabs">
+        <button class="tab active" id="loginTab" type="button">
+          Login
+        </button>
+        <button class="tab" id="registerTab" type="button">
+          Register
+        </button>
+      </div>
 
-      <button type="submit" id="submitBtn">Login</button>
-    </form>
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form">
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Login to your PestCare account</p>
 
-    <p id="message" role="status"></p>
+        <label for="loginEmail">Email Address</label>
+        <input type="email" id="loginEmail"
+               placeholder="Enter your email" required>
 
-    <p class="switch">
-      <span id="switchText">Don't have an account?</span>
-      <button type="button" id="switchBtn">Register</button>
-    </p>
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword"
+               placeholder="Enter your password" required>
 
-    <button id="exportBtn" hidden>Export My Profile to Excel</button>
-    <button id="logoutBtn" hidden>Logout</button>
+        <button type="submit" class="submit-btn">Login</button>
+
+        <p class="switch-text">
+          Don't have an account?
+          <a href="#" id="showRegister">Register Now</a>
+        </p>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="registerForm" class="auth-form hidden">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join PestCare today</p>
+
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName"
+               placeholder="Enter your full name" required>
+
+        <label for="registerEmail">Email Address</label>
+        <input type="email" id="registerEmail"
+               placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone"
+               placeholder="Enter your phone number"
+               pattern="[0-9+\-\s]{7,15}" required>
+
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword"
+               placeholder="Create a password"
+               minlength="8" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword"
+               placeholder="Confirm your password"
+               minlength="8" required>
+
+        <button type="submit" class="submit-btn">
+          Create Account
+        </button>
+
+        <p class="switch-text">
+          Already have an account?
+          <a href="#" id="showLogin">Login Now</a>
+        </p>
+      </form>
+
+      <p id="message" class="message" aria-live="polite"></p>
+
+      <a href="index.html" class="home-link">← Back to Home</a>
+
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
   <script src="login.js"></script>
 </body>
 </html>
