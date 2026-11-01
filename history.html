@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Booking History | PestCare</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="history.css">
+
+    <script src="history.js" defer></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a class="logo" href="/">
+            <span class="logo-bug">🐞</span> PestCare
+        </a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/#services">Services</a>
+            <a href="/booking.html">Book a Service</a>
+        </nav>
+
+        <button id="logoutBtn" class="history-logout">
+            Logout
+        </button>
+    </header>
+
+    <main class="history-container">
+
+        <section class="history-heading">
+            <p class="tagline">CUSTOMER DASHBOARD</p>
+
+            <h1>My Booking History</h1>
+
+            <p>
+                View all your previous and current PestCare service bookings.
+            </p>
+        </section>
+
+        <section class="history-summary">
+
+            <div class="summary-card">
+                <h3>Total Bookings</h3>
+                <p id="totalBookings">0</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Pending</h3>
+                <p id="pendingBookings">0</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Completed</h3>
+                <p id="completedBookings">0</p>
+            </div>
+
+        </section>
+
+        <section class="history-content">
+
+            <div class="history-title">
+                <div>
+                    <h2>Your Services</h2>
+                    <p>All your service requests in one place.</p>
+                </div>
+
+                <button id="refreshBtn" class="refresh-btn">
+                    ↻ Refresh
+                </button>
+            </div>
+
+            <div id="loadingMessage" class="history-message">
+                Loading your booking history...
+            </div>
+
+            <div id="errorMessage" class="history-error" hidden></div>
+
+            <div id="emptyMessage" class="empty-history" hidden>
+                <div class="empty-icon">📋</div>
+
+                <h3>No Bookings Yet</h3>
+
+                <p>
+                    You haven't booked any PestCare services yet.
+                </p>
+
+                <a href="/booking.html" class="history-book-btn">
+                    Book Your First Service
+                </a>
+            </div>
+
+            <div id="bookingList" class="booking-list"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 PestCare Service Management System</p>
+        <p>College project demonstration</p>
+    </footer>
+
+</body>
+</html>

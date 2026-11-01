@@ -5,53 +5,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PestCare | Pest Control Services</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
+  <style>
+    .customer-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-user {
+      color: #218838;
+      font-weight: 600;
+    }
+
+    .history-link {
+      color: #218838;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .history-link:hover {
+      text-decoration: underline;
+    }
+
+    .logout-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .logout-btn:hover {
+      background: #bd2130;
+    }
+
+    /* Make sure hidden elements stay hidden */
+    [hidden] {
+      display: none !important;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- NAVIGATION BAR -->
   <header class="navbar">
-    <a class="logo" href="index.html"><span class="logo-bug">🐞</span> PestCare</a>
+
+    <a class="logo" href="/">
+      <span class="logo-bug">🐞</span> PestCare
+    </a>
+
     <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
+      <a href="/">Home</a>
+      <a href="/#services">Services</a>
+      <a href="/#about">About</a>
     </nav>
-    <a href="login.html" class="btn btn-small">Login / Register</a>
+
+    <!-- CUSTOMER NAVIGATION -->
+    <div class="customer-nav" id="customerNav">
+
+      <!-- Shown when logged out -->
+      <a href="/login" class="btn btn-small" id="loginRegisterBtn">
+        Login / Register
+      </a>
+
+      <!-- Shown when logged in -->
+      <a
+        href="/history.html"
+        class="history-link"
+        id="historyLink"
+        hidden
+      >
+        My Booking History
+      </a>
+
+      <span class="welcome-user" id="welcomeUser" hidden>
+        Welcome, Customer
+      </span>
+
+      <button
+        class="logout-btn"
+        id="logoutBtn"
+        type="button"
+        hidden
+      >
+        Logout
+      </button>
+
+    </div>
+
   </header>
 
   <main>
+
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
+
       <div class="hero-content">
+
         <p class="tagline">A HEALTHIER, PEST-FREE HOME</p>
-        <h1>Protect Your Home.<br><span>Keep Pests Away.</span></h1>
-        <p class="description">Reliable pest control services for your home and workplace. Explore our services and request a visit.</p>
-        <a class="btn hero-btn" href="booking.html">Book a Service <span aria-hidden="true">→</span></a>
+
+        <h1>
+          Protect Your Home.<br>
+          <span>Keep Pests Away.</span>
+        </h1>
+
+        <p class="description">
+          Reliable pest control services for your home and workplace.
+          Explore our services and request a visit.
+        </p>
+
+        <a class="btn hero-btn" href="/booking.html">
+          Book a Service <span aria-hidden="true">→</span>
+        </a>
+
       </div>
+
       <div class="hero-card">
+
         <div class="bug-icon">🛡️</div>
+
         <h2>Your Home, Protected</h2>
+
         <p>Professional pest control, made simple.</p>
+
         <div class="feature">✓ <span>Easy service booking</span></div>
         <div class="feature">✓ <span>Booking status tracking</span></div>
         <div class="feature">✓ <span>Dedicated service support</span></div>
+
       </div>
+
     </section>
 
+    <!-- SERVICES SECTION -->
     <section class="services" id="services">
+
       <p class="tagline">OUR SERVICES</p>
+
       <h2>What do you need help with?</h2>
+
       <div class="service-grid">
-        <article class="service-card"><div class="service-icon">🐜</div><h3>Ant Control</h3><p>Help control ant infestations in your property.</p><a href="booking.html?service=Ant%20Control">Book this service →</a></article>
-        <article class="service-card"><div class="service-icon">🪳</div><h3>Cockroach Control</h3><p>Target cockroaches in kitchens and other spaces.</p><a href="booking.html?service=Cockroach%20Control">Book this service →</a></article>
-        <article class="service-card"><div class="service-icon">🦟</div><h3>Mosquito Control</h3><p>Help reduce mosquitoes around your property.</p><a href="booking.html?service=Mosquito%20Control">Book this service →</a></article>
+
+        <article class="service-card">
+          <div class="service-icon">🐜</div>
+          <h3>Ant Control</h3>
+          <p>Help control ant infestations in your property.</p>
+          <a href="/booking.html?service=Ant%20Control">
+            Book this service →
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🪳</div>
+          <h3>Cockroach Control</h3>
+          <p>Target cockroaches in kitchens and other spaces.</p>
+          <a href="/booking.html?service=Cockroach%20Control">
+            Book this service →
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🦟</div>
+          <h3>Mosquito Control</h3>
+          <p>Help reduce mosquitoes around your property.</p>
+          <a href="/booking.html?service=Mosquito%20Control">
+            Book this service →
+          </a>
+        </article>
+
       </div>
+
     </section>
 
+    <!-- ABOUT SECTION -->
     <section class="about" id="about">
-      <div><p class="tagline">WHY PESTCARE</p><h2>Simple. Reliable. Organized.</h2></div>
-      <p>PestCare brings service requests, technician assignments, and booking updates together in one place.</p>
+
+      <div>
+        <p class="tagline">WHY PESTCARE</p>
+        <h2>Simple. Reliable. Organized.</h2>
+      </div>
+
+      <p>
+        PestCare brings service requests, technician assignments,
+        and booking updates together in one place.
+      </p>
+
     </section>
+
   </main>
-  <footer><p>© 2026 PestCare Service Management System</p><p>College project demonstration</p></footer>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 PestCare Service Management System</p>
+    <p>College project demonstration</p>
+  </footer>
+
+  <!-- CUSTOMER LOGIN STATUS SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const loginRegisterBtn = document.getElementById("loginRegisterBtn");
+      const historyLink = document.getElementById("historyLink");
+      const welcomeUser = document.getElementById("welcomeUser");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      // Show navigation for a logged-in customer
+      function showLoggedIn(customer) {
+        loginRegisterBtn.hidden = true;
+        historyLink.hidden = false;
+        welcomeUser.hidden = false;
+        logoutBtn.hidden = false;
+
+        if (customer && customer.name) {
+          welcomeUser.textContent = "Welcome, " + customer.name;
+        } else {
+          welcomeUser.textContent = "Welcome, Customer";
+        }
+      }
+
+      // Show navigation for a logged-out customer
+      function showLoggedOut() {
+        loginRegisterBtn.hidden = false;
+        historyLink.hidden = true;
+        welcomeUser.hidden = true;
+        logoutBtn.hidden = true;
+      }
+
+      // Check customer login status
+      async function checkCustomerLogin() {
+        try {
+          const response = await fetch("/customer-session", {
+            method: "GET",
+            credentials: "same-origin",
+            cache: "no-store"
+          });
+
+          if (!response.ok) {
+            showLoggedOut();
+            return;
+          }
+
+          const data = await response.json();
+
+          if (data.logged_in) {
+            showLoggedIn(data.customer);
+          } else {
+            showLoggedOut();
+          }
+
+        } catch (error) {
+          console.error("Could not check customer session:", error);
+          showLoggedOut();
+        }
+      }
+
+      // Customer logout
+      logoutBtn.addEventListener("click", async function () {
+
+        logoutBtn.disabled = true;
+
+        try {
+          const response = await fetch("/customer-logout", {
+            method: "GET",
+            credentials: "same-origin"
+          });
+
+          if (response.ok) {
+            window.location.href = "/";
+          } else {
+            alert("Logout failed. Please try again.");
+            logoutBtn.disabled = false;
+          }
+
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Unable to logout. Please try again.");
+          logoutBtn.disabled = false;
+        }
+
+      });
+
+      // Check login status when homepage loads
+      checkCustomerLogin();
+
+    });
+  </script>
+
 </body>
 </html>

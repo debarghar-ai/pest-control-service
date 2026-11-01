@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PestCare | Admin Login</title>
+
+    <link rel="stylesheet" href="admin-login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">
+            <h1>🌿 PestCare</h1>
+            <p>Professional Pest Control Services</p>
+        </div>
+
+        <div class="login-box">
+
+            <h2>Admin Login</h2>
+            <p class="subtitle">Sign in to access your admin dashboard</p>
+
+            <form id="adminLoginForm">
+
+                <div class="input-group">
+                    <label for="username">Admin Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Admin Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="loginButton">
+                    Login to Dashboard
+                </button>
+
+                <p id="message" role="alert"></p>
+
+            </form>
+
+        </div>
+
+        <div class="footer">
+            <p>© 2026 PestCare. All Rights Reserved.</p>
+            <a href="/">Back to Website</a>
+        </div>
+
+    </div>
+
+    <script src="admin-login.js"></script>
+
+</body>
+</html>

@@ -4,174 +4,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Book a Service | PestCare</title>
+
   <link rel="stylesheet" href="booking.css">
   <script src="booking.js" defer></script>
 </head>
+
 <body>
 
   <header class="navbar">
-    <a class="logo" href="index.html">🐞 PestCare</a>
+    <a class="logo" href="/">🐞 PestCare</a>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
-      <a href="booking.html">Book a Service</a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/#services">Services</a>
+      <a href="/booking.html" class="active">Book a Service</a>
     </nav>
 
-    <a class="btn btn-small" href="login.html">Login / Register</a>
+    <a class="btn btn-small" href="/login">Login / Register</a>
   </header>
 
   <main class="container">
 
     <section class="intro">
       <p class="eyebrow">PESTCARE SERVICE REQUEST</p>
+
       <h1>Book your <span>pest control</span> visit.</h1>
-      <p>Choose the service you need and tell us when and where you would like a visit.</p>
+
+      <p>
+        A cleaner, healthier space starts here.
+        Tell us what you need and choose your preferred appointment.
+      </p>
     </section>
 
     <div class="layout" id="bookingLayout">
 
       <section class="panel">
-        <h2>Service details</h2>
+
+        <div class="panel-heading">
+          <div>
+            <p class="step-label">STEP 01 · SERVICE INFORMATION</p>
+            <h2>Service details</h2>
+          </div>
+          <span class="heading-icon">🛡️</span>
+        </div>
 
         <form id="bookingForm">
 
           <label for="service">Service required *</label>
+
           <select id="service" name="service" required>
             <option value="">Choose a service</option>
-            <option>Ant Control</option>
-            <option>Cockroach Control</option>
-            <option>Mosquito Control</option>
-            <option>Termite Control</option>
-            <option>Rodent Control</option>
-            <option>General Pest Inspection</option>
-            <option>Other / Not sure</option>
+            <option value="Ant Control">Ant Control</option>
+            <option value="Cockroach Control">Cockroach Control</option>
+            <option value="Mosquito Control">Mosquito Control</option>
+            <option value="Termite Control">Termite Control</option>
+            <option value="Rodent Control">Rodent Control</option>
+            <option value="General Pest Inspection">General Pest Inspection</option>
+            <option value="Other / Not sure">Other / Not sure</option>
           </select>
 
           <label>Property type *</label>
 
           <div class="choices">
-            <label>
+
+            <label class="choice-card">
               <input type="radio" name="property" value="House" required>
-              🏠 House
+              <span class="choice-icon">🏠</span>
+              <span>House</span>
             </label>
 
-            <label>
+            <label class="choice-card">
               <input type="radio" name="property" value="Apartment">
-              🏢 Apartment
+              <span class="choice-icon">🏢</span>
+              <span>Apartment</span>
             </label>
 
-            <label>
+            <label class="choice-card">
               <input type="radio" name="property" value="Office">
-              💼 Office
+              <span class="choice-icon">💼</span>
+              <span>Office</span>
             </label>
 
-            <label>
+            <label class="choice-card">
               <input type="radio" name="property" value="Shop / Other">
-              🏬 Shop / Other
+              <span class="choice-icon">🏬</span>
+              <span>Shop / Other</span>
             </label>
+
           </div>
 
-          <label for="date">Preferred date *</label>
-          <input type="date" id="date" name="date" required>
+          <div class="form-divider"></div>
 
-          <label for="time">Preferred time *</label>
-          <select id="time" name="time" required>
-            <option value="">Choose a time</option>
-            <option>9:00 AM – 12:00 PM</option>
-            <option>12:00 PM – 3:00 PM</option>
-            <option>3:00 PM – 6:00 PM</option>
-          </select>
+          <p class="step-label">STEP 02 · APPOINTMENT</p>
+
+          <div class="two-columns">
+
+            <div>
+              <label for="date">Preferred date *</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+
+            <div>
+              <label for="time">Preferred time *</label>
+
+              <select id="time" name="time" required>
+                <option value="">Choose a time</option>
+                <option value="9:00 AM – 12:00 PM">9:00 AM – 12:00 PM</option>
+                <option value="12:00 PM – 3:00 PM">12:00 PM – 3:00 PM</option>
+                <option value="3:00 PM – 6:00 PM">3:00 PM – 6:00 PM</option>
+              </select>
+            </div>
+
+          </div>
 
           <label for="address">Service address *</label>
-          <textarea id="address" name="address" rows="3"
+
+          <textarea
+            id="address"
+            name="address"
+            rows="3"
             placeholder="House/flat, street, area, city, PIN code"
-            required></textarea>
+            required
+          ></textarea>
 
           <label for="notes">Additional details (optional)</label>
-          <textarea id="notes" name="notes" rows="3"
-            placeholder="Describe the pest problem"></textarea>
+
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            placeholder="Describe the pest problem..."
+          ></textarea>
+
+          <div class="form-divider"></div>
+
+          <p class="step-label">STEP 03 · YOUR CONTACT DETAILS</p>
 
           <div class="two-columns">
 
             <div>
               <label for="name">Full name *</label>
-              <input id="name" name="name"
-                autocomplete="name" required>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your full name"
+                autocomplete="name"
+                required
+              >
             </div>
 
             <div>
               <label for="phone">Phone number *</label>
-              <input id="phone" name="phone" type="tel"
+
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
                 pattern="[0-9+() -]{10,18}"
-                placeholder="Mobile number" required>
+                placeholder="Mobile number"
+                autocomplete="tel"
+                required
+              >
             </div>
 
           </div>
 
-          <label for="email">Email (optional)</label>
-          <input id="email" name="email" type="email"
-            placeholder="you@example.com">
+          <label for="email">Email address *</label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
 
           <label class="consent">
             <input type="checkbox" id="consent" required>
-            I confirm that these details are correct. I understand
-            this is a request, not a confirmed appointment.
+
+            <span>
+              I confirm that these details are correct. I understand
+              this is a service request, not a confirmed appointment.
+            </span>
           </label>
 
           <button class="btn submit" type="submit">
-            Submit service request →
+            Submit service request <span>→</span>
           </button>
 
           <p class="note">
-            Your booking request will be saved in the PestCare system.
+            🔒 Your booking request is submitted securely to the PestCare system.
           </p>
 
+          <p id="formMessage" class="form-message" role="alert" hidden></p>
+
         </form>
+
       </section>
 
       <aside class="side">
 
         <section class="summary">
+
           <p class="eyebrow">YOUR REQUEST</p>
+
           <h2>Booking summary</h2>
 
-          <p>
-            <span>Service</span>
-            <strong id="sumService">Not selected</strong>
+          <p class="summary-description">
+            Review your selections before submitting your request.
           </p>
 
-          <p>
-            <span>Property</span>
-            <strong id="sumProperty">Not selected</strong>
-          </p>
+          <div class="summary-details">
 
-          <p>
-            <span>Date</span>
-            <strong id="sumDate">Not selected</strong>
-          </p>
+            <div class="summary-row">
+              <span>Service</span>
+              <strong id="sumService">Not selected</strong>
+            </div>
 
-          <p>
-            <span>Time</span>
-            <strong id="sumTime">Not selected</strong>
-          </p>
+            <div class="summary-row">
+              <span>Property</span>
+              <strong id="sumProperty">Not selected</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Date</span>
+              <strong id="sumDate">Not selected</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Time</span>
+              <strong id="sumTime">Not selected</strong>
+            </div>
+
+          </div>
 
           <div class="status">
-            <b>● Awaiting confirmation</b>
-            <br>
-            <small>
-              Your preferred slot must be confirmed by the service team.
-            </small>
+            <span class="status-dot"></span>
+
+            <div>
+              <strong>Awaiting confirmation</strong>
+
+              <small>
+                Your preferred appointment must be confirmed by the service team.
+              </small>
+            </div>
           </div>
 
         </section>
 
         <section class="help">
+
+          <div class="help-icon">💡</div>
+
           <h3>Need help choosing?</h3>
-          <p>Select General Pest Inspection if you are unsure which service you need.</p>
-          <a href="index.html#services">Explore services →</a>
+
+          <p>
+            Not sure which service you need?
+            Select General Pest Inspection and our team can review your request.
+          </p>
+
+          <a href="/#services">Explore services →</a>
+
         </section>
+
+        <div class="trust-note">
+          <span>✓</span>
+          <p>Simple booking. Organized service requests. Better support.</p>
+        </div>
 
       </aside>
 
@@ -181,17 +285,20 @@
 
       <div class="check">✓</div>
 
-      <p class="eyebrow">REQUEST SAVED</p>
+      <p class="eyebrow">REQUEST SUBMITTED</p>
 
-      <h2>Thank you! Your request is ready.</h2>
+      <h2>Thank you for choosing PestCare!</h2>
 
       <p id="successMessage"></p>
 
-      <p class="reference" id="reference"></p>
+      <div class="reference-box">
+        <span>Your booking reference</span>
+        <strong class="reference" id="reference"></strong>
+      </div>
 
       <p class="note">
-        This demo saves the request in this browser.
-        It has not been sent to PestCare and is not a confirmed appointment.
+        Your request has been saved in the PestCare booking system.
+        Your appointment is awaiting confirmation.
       </p>
 
       <button class="btn" id="newBooking" type="button">
@@ -199,7 +306,7 @@
       </button>
 
       <button class="btn secondary" id="printBooking" type="button">
-        Print summary
+        Print confirmation
       </button>
 
     </section>
@@ -207,7 +314,8 @@
   </main>
 
   <footer>
-    © 2026 PestCare Service Management System
+    <p>© 2026 PestCare Service Management System</p>
+    <p>Professional pest control service requests</p>
   </footer>
 
 </body>

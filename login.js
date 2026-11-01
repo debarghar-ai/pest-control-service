@@ -1,4 +1,4 @@
-console.log("LOGIN JS IS WORKING");
+
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("registerForm");
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showLogin();
     });
 
+    // CUSTOMER REGISTRATION
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -56,8 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("registerEmail").value.trim();
         const phone = document.getElementById("phone").value.trim();
 
-        const password = document.getElementById("registerPassword").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+        const password =
+            document.getElementById("registerPassword").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
 
         if (password.length < 8) {
             showMessage("Password must be at least 8 characters.", true);
@@ -69,37 +73,117 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        const button = registerForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        button.disabled = true;
+        button.textContent = "Creating account...";
+
         try {
             const response = await fetch("/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ name, email, phone })
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    password
+                })
             });
 
             const result = await response.json();
 
-            if (!response.ok) {
-                showMessage(result.message || "Registration failed.", true);
+            if (!response.ok || !result.success) {
+                showMessage(
+                    result.message || "Registration failed.",
+                    true
+                );
                 return;
             }
 
-            showMessage(result.message);
+            showMessage(
+                "Account created successfully! You can now log in."
+            );
+
             registerForm.reset();
 
             setTimeout(showLogin, 1500);
 
         } catch (error) {
-            console.error(error);
+            console.error("Registration error:", error);
             showMessage("Could not connect to the server.", true);
+
+        } finally {
+            button.disabled = false;
+            button.textContent = "Create Account";
         }
     });
 
-    // Demo login only: registration currently saves user details,
-    // but does not create a secure login system.
-    loginForm.addEventListener("submit", function (event) {
+    // CUSTOMER LOGIN
+    loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        showMessage("Registration is connected. Login authentication is not set up yet.", true);
+
+        const email =
+            document.getElementById("loginEmail").value.trim();
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        const button = loginForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        button.disabled = true;
+        button.textContent = "Logging in...";
+
+        try {
+            const response = await fetch("/customer-login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                showMessage(
+                    result.message || "Invalid email or password.",
+                    true
+                );
+                return;
+            }
+
+            showMessage("Login successful! Redirecting...");
+
+            const nextPage =
+                new URLSearchParams(window.location.search).get("next");
+
+            // Only allow local website paths.
+            const safeNextPage =
+                nextPage &&
+                nextPage.startsWith("/") &&
+                !nextPage.startsWith("//") &&
+                !nextPage.includes("\\")
+                    ? nextPage
+                    : "/";
+
+            window.location.href = safeNextPage;
+
+        } catch (error) {
+            console.error("Login error:", error);
+            showMessage("Could not connect to the server.", true);
+
+        } finally {
+            button.disabled = false;
+            button.textContent = "Login";
+        }
     });
 });

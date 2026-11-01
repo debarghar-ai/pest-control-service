@@ -1,0 +1,142 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 25px;
+}
+
+.logo h1 {
+    color: #176b38;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.logo p {
+    color: #55715d;
+    font-size: 14px;
+}
+
+.login-box {
+    background: #ffffff;
+    padding: 38px 32px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.login-box h2 {
+    color: #174d32;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d5ded7;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #218447;
+    box-shadow: 0 0 5px rgba(33, 132, 71, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #218447;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #176535;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#message {
+    margin-top: 17px;
+    font-size: 14px;
+    color: #d32f2f;
+}
+
+.footer {
+    margin-top: 25px;
+    color: #55715d;
+    font-size: 13px;
+}
+
+.footer a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #176b38;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 22px;
+    }
+
+    .logo h1 {
+        font-size: 29px;
+    }
+}

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PestCare | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/admin-dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>🐜 PestCare</h2>
+                <p>Admin Panel</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="/admin-dashboard" class="active">
+                    📊 Dashboard
+                </a>
+
+                <a href="#bookings">
+                    📋 Bookings
+                </a>
+
+                <a href="#customers">
+                    👥 Customers
+                </a>
+
+                <a href="/admin-management">
+                    🛠️ Admin Management
+                </a>
+
+                <a href="/">
+                    🌐 View Website
+                </a>
+
+                <a href="/admin-logout">
+                    🚪 Logout
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="page-header">
+
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Welcome to your PestCare management panel.</p>
+                </div>
+
+                <div class="admin-profile">
+                    <span>Welcome, </span>
+                    <strong id="adminName">Admin</strong>
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <h3>Total Bookings</h3>
+                    <h2 id="totalBookings">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <h2 id="totalCustomers">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Pending Bookings</h3>
+                    <h2 id="pendingBookings">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Confirmed Bookings</h3>
+                    <h2 id="confirmedBookings">0</h2>
+                </div>
+
+            </section>
+
+
+            <!-- Bookings Section -->
+            <section class="dashboard-section" id="bookings">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Service Bookings</h2>
+                        <p>Manage and update customer bookings.</p>
+                    </div>
+
+                    <button id="refreshButton" type="button">
+                        🔄 Refresh
+                    </button>
+
+                </div>
+
+
+                <!-- Booking Search -->
+                <div class="search-container">
+
+                    <input
+                        type="text"
+                        id="bookingSearch"
+                        placeholder="Search by customer name, phone or booking ID..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- Booking Message -->
+                <p id="bookingMessage"></p>
+
+
+                <!-- Bookings Table -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer Name</th>
+                                <th>Service</th>
+                                <th>Booking Date</th>
+                                <th>Preferred Time</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="bookingTable">
+
+                            <tr>
+                                <td colspan="8">Loading bookings...</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- Customers Section -->
+            <section class="dashboard-section" id="customers">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Registered Customers</h2>
+                        <p>View customers registered on PestCare.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Customers Table -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Registration Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customerTable">
+
+                            <tr>
+                                <td colspan="4">Loading customers...</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Dashboard JavaScript -->
+    <script src="/admin-dashboard.js"></script>
+
+</body>
+</html>
